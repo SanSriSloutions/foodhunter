@@ -1,14 +1,14 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar >
     <ion-title>
-      Ionic Blank
+      Film Titles
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content padding> 
+    <button (click)="open()">showlist</button>
+ <ion-list>
+   <button style="background: peru" ion-item *ngFor="let film of (films)?.results" (click)="openDetails(film)">{{film.title}}</button>
+ </ion-list>
 </ion-content>
