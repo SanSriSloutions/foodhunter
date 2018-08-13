@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ApiProvider } from '../../providers/api/api';
+import { SharedPreferences } from '../../helper/preferences';
 
 
 
@@ -11,7 +12,7 @@ import { ApiProvider } from '../../providers/api/api';
 export class HomePage {
   films: any;
 
-  constructor(public navCtrl: NavController, private apiProvider: ApiProvider) {
+  constructor(public navCtrl: NavController, private apiProvider: ApiProvider,private preferences:SharedPreferences) {
     this.init();
   }
 
@@ -22,11 +23,20 @@ export class HomePage {
       console.log("error", err);
     })
   }
-  open(){
+
+  //checkApi Data.
+  checkAPi(){
     this.apiProvider.getFilms().then(data => {
       this.films = data;
     }, err => {
       console.log("error", err);
+    })
+  }
+  //check sharefPref data
+  checksharedPref(){
+    this.preferences.saveData("name","srinu");
+    this.preferences.getData("name").then(data=>{
+      console.log(data);
     })
   }
   openDetails(film) {
