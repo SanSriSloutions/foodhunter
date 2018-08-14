@@ -1,3 +1,5 @@
+import { MainPage } from './../pages/main/main';
+import { SQLite } from '@ionic-native/sqlite';
 import { NativeStorage } from '@ionic-native/native-storage';
 import { HttpClientModule } from '@angular/common/http';
 import { ApiProvider } from '../providers/api/api';
@@ -11,6 +13,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { SharedPreferences } from '../helper/preferences';
+import { SqliteHelper } from '../helper/sqlite';
 
 
 
@@ -18,7 +21,8 @@ import { SharedPreferences } from '../helper/preferences';
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    MainPage
   ],
   imports: [
     BrowserModule,
@@ -29,7 +33,8 @@ import { SharedPreferences } from '../helper/preferences';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    MainPage
   ],
   providers: [
     StatusBar,
@@ -37,7 +42,9 @@ import { SharedPreferences } from '../helper/preferences';
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     ApiProvider,
     NativeStorage,
-   SharedPreferences
+    SharedPreferences,
+    SQLite,
+    SqliteHelper
   ]
 })
 export class AppModule { }

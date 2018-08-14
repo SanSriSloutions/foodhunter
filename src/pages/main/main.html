@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>RESTUARENTS</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>   
+      <ion-card *ngFor="let restaurant of restaurants"> 
+          <ion-card-content (click)="goToRestaurentDetails(restaurant)">  
+            <div style="float: left;">
+              <img style="width: 100px;"src="{{restaurant.restarant_image}}">  
+            </div>
+            <div>
+              <h2>{{restaurant.restarant_name}}</h2>
+              <p>{{restaurant.restarant_specail}}</p>
+              <div style="float: left;width: 40%;">
+                <div>
+                  <span>{{restaurant.restarant_star}}</span>
+                </div> 
+                <div>
+                    <span class=""> {{restaurant.restarant_rating}}</span>
+                    <span class=""> Ratings</span>
+                </div> 
+            </div>
+            <div>
+                <div>
+                    <span class=""> {{restaurant.delivery_time}}</span>
+                    <span class=""> Mins</span>
+                </div> 
+                <div>
+                     <span class=""> Delivery Time</span>
+                </div> 
+            </div>
+            </div>
+          </ion-card-content>
+        </ion-card> 
+</ion-content>
+ 
